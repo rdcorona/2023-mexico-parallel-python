@@ -1,5 +1,6 @@
 import os
 import sys
+import time
 from multiprocessing import Pool as ProcessPool
 
 import process_image
@@ -21,5 +22,8 @@ if __name__ == '__main__':
     n_processes = int(sys.argv[1])
     n_threads = int(sys.argv[2])
     fnames = sys.argv[3:]
-
+    start = time.time()
     process(n_processes, n_threads, fnames)
+    end = time.time()
+    print(f'time used: {end - start:.2f} s')
+
